@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ang Huling El Bimbo — May 8, 2026</title>
+  <meta name="description" content="Ang Huling El Bimbo — A HUMSS Musical Production by LPU Davao Junior College. May 8, 2026. Pre-order tickets now.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ── Reset & base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0d0500;
+      color: #e8d5b0;
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.75;
+    }
+
+    /* ── Typography ───────────────────────────────── */
+    .display-title {
+      font-family: Georgia, serif;
+      font-size: clamp(52px, 9vw, 96px);
+      line-height: 0.92;
+      letter-spacing: -0.025em;
+      color: #FFD700;
+    }
+    .section-heading {
+      font-family: Georgia, serif;
+      font-size: clamp(28px, 4vw, 42px);
+      color: #FFD700;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+    }
+    .section-label {
+      font-family: system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,215,0,0.5);
+    }
+    .body-text {
+      font-family: system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #c8a96e;
+      max-width: 600px;
+    }
+    .gold-divider {
+      width: 52px;
+      height: 2px;
+      background: linear-gradient(90deg, #FFD700, transparent);
+      margin: 18px 0 30px;
+    }
+
+    /* ── Buttons ──────────────────────────────────── */
+    .btn-primary {
+      display: inline-block;
+      background: #FFD700;
+      color: #1a0800;
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), opacity 0.18s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); opacity: 0.92; }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 2px solid #FFD700; outline-offset: 3px; }
+
+    .btn-ghost {
+      display: inline-block;
+      border: 1px solid rgba(255,215,0,0.4);
+      color: rgba(255,215,0,0.85);
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), border-color 0.18s ease;
+    }
+    .btn-ghost:hover { transform: translateY(-2px); border-color: rgba(255,215,0,0.7); }
+    .btn-ghost:active { transform: translateY(0); }
+    .btn-ghost:focus-visible { outline: 2px solid rgba(255,215,0,0.5); outline-offset: 3px; }
+
+    /* ── Sections ─────────────────────────────────── */
+    .site-section {
+      padding: 100px 0;
+      border-top: 1px solid rgba(255,215,0,0.08);
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 20px; }
+      .site-section { padding: 72px 0; }
+    }
+
+    /* ── Grain texture ────────────────────────────── */
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ══════════════════════════════════════════ -->
+  <nav id="site-nav" style="
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,5,0,0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,215,0,0.1);
+    padding: 14px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: background 0.3s ease;
+  ">
+    <a href="#hero" style="
+      color: #FFD700; font-size: 13px; font-weight: 700;
+      font-family: system-ui, sans-serif;
+      letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none;
+    ">AHEB</a>
+    <div style="display: flex; gap: 28px; align-items: center;">
+      <a href="#about" style="color: rgba(232,213,176,0.65); font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.2s ease;" onmouseover="this.style.color='rgba(255,215,0,0.9)'" onmouseout="this.style.color='rgba(232,213,176,0.65)'">About</a>
+      <a href="#cast" style="color: rgba(232,213,176,0.65); font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.2s ease;" onmouseover="this.style.color='rgba(255,215,0,0.9)'" onmouseout="this.style.color='rgba(232,213,176,0.65)'">Cast</a>
+      <a href="#tickets" style="color: rgba(232,213,176,0.65); font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.2s ease;" onmouseover="this.style.color='rgba(255,215,0,0.9)'" onmouseout="this.style.color='rgba(232,213,176,0.65)'">Tickets</a>
+      <a href="#venue" style="color: rgba(232,213,176,0.65); font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.2s ease;" onmouseover="this.style.color='rgba(255,215,0,0.9)'" onmouseout="this.style.color='rgba(232,213,176,0.65)'">Venue</a>
+      <a href="#tickets" class="btn-primary" style="padding: 9px 22px; font-size: 10px;">Pre-Order</a>
+    </div>
+  </nav>
+
+  <!-- sections will be added in subsequent tasks -->
+
+  <script>
+    // scripts will be added in subsequent tasks
+  </script>
+</body>
+</html>
