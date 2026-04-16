@@ -1,0 +1,106 @@
+<h2>Which website layout feels right?</h2>
+<p class="subtitle">All three use the warm nostalgic style. The difference is structure and scroll experience.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="cinematic-scroll" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #1a0a00; padding: 16px; min-height: 200px; font-family: sans-serif; position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(201,122,0,0.3) 0%, transparent 60%);"></div>
+      <!-- Hero -->
+      <div style="background: linear-gradient(180deg, #3d1a00 0%, #1a0a00 100%); border-radius: 6px; padding: 12px; margin-bottom: 6px; text-align: center; position: relative;">
+        <div style="color: #FFD700; font-size: 13px; font-weight: bold; letter-spacing: 0.05em;">🎭 ANG HULING EL BIMBO</div>
+        <div style="color: rgba(255,215,0,0.5); font-size: 9px; margin-top: 2px;">May 8, 2026 · Full-screen poster + CTA</div>
+      </div>
+      <!-- Countdown -->
+      <div style="background: rgba(255,180,0,0.1); border: 1px solid rgba(255,180,0,0.3); border-radius: 6px; padding: 8px; margin-bottom: 6px; text-align: center;">
+        <div style="color: #FFD700; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;">⏱ Countdown Timer</div>
+      </div>
+      <!-- About -->
+      <div style="background: rgba(255,255,255,0.04); border-radius: 6px; padding: 8px; margin-bottom: 6px;">
+        <div style="color: #c8a96e; font-size: 10px;">📖 About the Show</div>
+        <div style="color: rgba(200,169,110,0.4); font-size: 8px; margin-top: 2px;">Story + cast gallery side by side</div>
+      </div>
+      <!-- Tickets -->
+      <div style="background: rgba(255,215,0,0.08); border: 1px solid rgba(255,215,0,0.2); border-radius: 6px; padding: 8px; margin-bottom: 6px;">
+        <div style="color: #FFD700; font-size: 10px;">🎟 Tickets · Floor Plan</div>
+      </div>
+      <!-- Venue + Social -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+        <div style="background: rgba(255,255,255,0.04); border-radius: 6px; padding: 8px;">
+          <div style="color: #c8a96e; font-size: 9px;">📍 Venue</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.04); border-radius: 6px; padding: 8px;">
+          <div style="color: #c8a96e; font-size: 9px;">📱 Social</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Cinematic Scroll</h3>
+      <p>One long, immersive page you scroll through. Each section fills the screen like a scene change. Dramatic and emotional — best for storytelling. <strong>Recommended.</strong></p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="magazine" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #1a0a00; padding: 16px; min-height: 200px; font-family: sans-serif; position: relative; overflow: hidden;">
+      <!-- Nav -->
+      <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.6); border-radius: 4px; padding: 6px 10px; margin-bottom: 8px;">
+        <div style="color: #FFD700; font-size: 9px; font-weight: bold; letter-spacing: 0.1em;">AHEB</div>
+        <div style="display: flex; gap: 8px;">
+          <span style="color: rgba(255,215,0,0.6); font-size: 8px;">About</span>
+          <span style="color: rgba(255,215,0,0.6); font-size: 8px;">Tickets</span>
+          <span style="color: rgba(255,215,0,0.6); font-size: 8px;">Cast</span>
+          <span style="color: #FFD700; font-size: 8px; background: rgba(255,215,0,0.2); padding: 2px 6px; border-radius: 10px;">Buy</span>
+        </div>
+      </div>
+      <!-- Hero split -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 6px;">
+        <div style="background: linear-gradient(135deg, #3d1a00, #7a3800); border-radius: 4px; padding: 10px; min-height: 60px; display: flex; align-items: center;">
+          <div style="color: #FFD700; font-size: 11px; font-weight: bold; line-height: 1.2;">ANG HULING<br>EL BIMBO</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); border-radius: 4px; padding: 10px; min-height: 60px;">
+          <div style="color: rgba(255,215,0,0.7); font-size: 8px; line-height: 1.5;">May 8, 2026<br>5:30 PM / 9:00 PM<br>LPU Davao</div>
+        </div>
+      </div>
+      <!-- 3-col content grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px;">
+        <div style="background: rgba(255,255,255,0.04); border-radius: 4px; padding: 8px; text-align: center;">
+          <div style="color: #c8a96e; font-size: 8px;">About</div>
+        </div>
+        <div style="background: rgba(255,215,0,0.1); border-radius: 4px; padding: 8px; text-align: center;">
+          <div style="color: #FFD700; font-size: 8px;">Tickets</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.04); border-radius: 4px; padding: 8px; text-align: center;">
+          <div style="color: #c8a96e; font-size: 8px;">Cast</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Magazine / Editorial</h3>
+      <p>Sticky top navigation + grid-based layout. Sections feel like editorial spreads. Good if people will navigate directly to Tickets or Cast rather than reading top to bottom.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="poster-first" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #1a0a00; padding: 16px; min-height: 200px; font-family: sans-serif; position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(201,122,0,0.4) 0%, transparent 65%);"></div>
+      <!-- Big poster hero -->
+      <div style="border-radius: 6px; padding: 20px; text-align: center; position: relative; min-height: 110px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255,215,0,0.2);">
+        <div style="color: #FFD700; font-size: 16px; font-weight: bold; letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 6px;">ANG HULING<br>EL BIMBO</div>
+        <div style="color: rgba(255,215,0,0.6); font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px;">A HUMSS PRODUCTION · MAY 8, 2026</div>
+        <div style="background: #FFD700; color: #1a0a00; font-size: 9px; font-weight: bold; padding: 5px 16px; border-radius: 20px; letter-spacing: 0.08em; text-transform: uppercase;">Pre-Order Now</div>
+      </div>
+      <!-- Compact info below -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 6px;">
+        <div style="background: rgba(255,255,255,0.04); border-radius: 4px; padding: 6px; font-size: 8px; color: rgba(200,169,110,0.8);">📖 Story</div>
+        <div style="background: rgba(255,255,255,0.04); border-radius: 4px; padding: 6px; font-size: 8px; color: rgba(200,169,110,0.8);">🎟 Tickets</div>
+        <div style="background: rgba(255,255,255,0.04); border-radius: 4px; padding: 6px; font-size: 8px; color: rgba(200,169,110,0.8);">🎭 Cast</div>
+        <div style="background: rgba(255,255,255,0.04); border-radius: 4px; padding: 6px; font-size: 8px; color: rgba(200,169,110,0.8);">📍 Venue</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Poster-First</h3>
+      <p>The official poster dominates the entire screen — it's the first thing people see. Tickets CTA is front and center. Everything else is secondary. Simple, punchy, event-focused.</p>
+    </div>
+  </div>
+
+</div>
