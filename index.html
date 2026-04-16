@@ -113,6 +113,99 @@
       pointer-events: none;
       z-index: 1;
     }
+
+    /* ── Hero ─────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 65% 35%, rgba(190,100,0,0.38) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 75%, rgba(120,50,0,0.28) 0%, transparent 50%),
+        #0d0500;
+      padding-top: 80px;
+    }
+    .hero-poster {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 45%;
+      object-fit: cover;
+      object-position: center top;
+      mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 40%, transparent 100%);
+      opacity: 0.55;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-meta {
+      font-family: system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,215,0,0.55);
+      margin-bottom: 22px;
+    }
+    .hero-subtitle {
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.07em;
+      color: rgba(200,169,110,0.8);
+      margin-top: 22px;
+      margin-bottom: 36px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    @media (max-width: 768px) {
+      .hero-poster { width: 100%; opacity: 0.18; }
+    }
+
+    /* ── Countdown ────────────────────────────────── */
+    #countdown {
+      padding: 72px 0;
+      background: linear-gradient(180deg, #0d0500 0%, #180900 50%, #0d0500 100%);
+      border-top: 1px solid rgba(255,215,0,0.1);
+      border-bottom: 1px solid rgba(255,215,0,0.1);
+      text-align: center;
+    }
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(16px, 4vw, 48px);
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .countdown-unit { text-align: center; min-width: 70px; }
+    .countdown-number {
+      font-family: Georgia, serif;
+      font-size: clamp(44px, 8vw, 72px);
+      font-weight: 700;
+      color: #FFD700;
+      line-height: 1;
+      display: block;
+    }
+    .countdown-lbl {
+      font-family: system-ui, sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,215,0,0.4);
+      margin-top: 8px;
+      display: block;
+    }
+    .countdown-sep {
+      font-family: Georgia, serif;
+      font-size: clamp(36px, 6vw, 56px);
+      color: rgba(255,215,0,0.18);
+      line-height: 1;
+      padding-bottom: 18px;
+      align-self: flex-end;
+    }
+    @media (max-width: 480px) {
+      .countdown-sep { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -142,10 +235,87 @@
     </div>
   </nav>
 
+  <!-- ══ HERO ════════════════════════════════════════════════ -->
+  <section id="hero" class="grain">
+    <img
+      src="Officicial poster.jpg"
+      alt="Ang Huling El Bimbo official poster"
+      class="hero-poster"
+    >
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-meta">A HUMSS Production &nbsp;·&nbsp; LPU Davao Junior College</p>
+        <h1 class="display-title">ANG<br>HULING<br>EL BIMBO</h1>
+        <p class="hero-subtitle">May 8, 2026 &nbsp;·&nbsp; Lyceum of the Philippines – Davao</p>
+        <div class="hero-btns">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdaMbFQRliTzhKOOuyQMsnJkjWaXBnyfqlir1jmQwziyClBZg/viewform?usp=sharing&ouid=107343474237936976300"
+            class="btn-primary"
+            target="_blank" rel="noopener"
+          >Pre-Order Tickets</a>
+          <a href="#about" class="btn-ghost">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COUNTDOWN ══════════════════════════════════════════ -->
+  <div id="countdown">
+    <div class="container">
+      <p class="section-label">Opening Night In</p>
+      <div class="countdown-grid" aria-live="polite" aria-label="Countdown to opening night">
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-days">--</span>
+          <span class="countdown-lbl">Days</span>
+        </div>
+        <span class="countdown-sep" aria-hidden="true">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-hours">--</span>
+          <span class="countdown-lbl">Hours</span>
+        </div>
+        <span class="countdown-sep" aria-hidden="true">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-minutes">--</span>
+          <span class="countdown-lbl">Minutes</span>
+        </div>
+        <span class="countdown-sep" aria-hidden="true">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-seconds">--</span>
+          <span class="countdown-lbl">Seconds</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- sections will be added in subsequent tasks -->
 
   <script>
-    // scripts will be added in subsequent tasks
+    // ── Countdown timer ──────────────────────────────────────
+    (function () {
+      const SHOW_DATE = new Date('2026-05-08T00:00:00+08:00').getTime();
+      const pad = n => String(n).padStart(2, '0');
+      function tick() {
+        const now = Date.now();
+        const diff = SHOW_DATE - now;
+        if (diff <= 0) {
+          document.getElementById('cd-days').textContent = '00';
+          document.getElementById('cd-hours').textContent = '00';
+          document.getElementById('cd-minutes').textContent = '00';
+          document.getElementById('cd-seconds').textContent = '00';
+          return;
+        }
+        const days    = Math.floor(diff / 86400000);
+        const hours   = Math.floor((diff % 86400000) / 3600000);
+        const minutes = Math.floor((diff % 3600000) / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-days').textContent    = pad(days);
+        document.getElementById('cd-hours').textContent   = pad(hours);
+        document.getElementById('cd-minutes').textContent = pad(minutes);
+        document.getElementById('cd-seconds').textContent = pad(seconds);
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
   </script>
 </body>
 </html>
