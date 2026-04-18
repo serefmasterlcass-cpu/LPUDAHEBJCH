@@ -126,22 +126,22 @@ Single-page, top-to-bottom:
 
 ### 4.5 Cast (Leads Spotlight + Clickable Modal Bios)
 
-#### 4.5.1 Featured leads (row of 5)
-Cards for: **Older Hector**, **Older Joy**, **Older Emman**, **Older Anthony**, **Ms. Ima**.
+#### 4.5.1 Featured leads (row of 4)
+Cards for the four Older-era protagonists: **Older Hector Samala**, **Older Emman Azarcon**, **Older Anthony Cruz Jr.**, **Older Joy Manawari**. These carry the story's emotional arc and deserve the largest treatment.
 
-Layout: CSS grid, 5 equal columns desktop → 3 tablet → 2 mobile → 1 small mobile. Each card:
+Layout: CSS grid, 4 equal columns desktop → 2 tablet → 1 mobile. Each card:
 - Full-width portrait, `aspect-ratio: 3/4`, `object-position: top center`.
 - Body padding 14–18px.
   - Role label (10px Inter uppercase, 0.2em tracking, gold-soft).
   - Character name (Playfair 18–20px, `--accent-gold`).
   - Actor name (10px Inter uppercase, 0.14em tracking, muted).
-  - One-line teaser pulled from the character bio (≈1 sentence, ellipsized if needed).
+  - Teaser line — the **first sentence** of the character bio from the txt file, no ellipsis (if a sentence is too long the card just wraps).
 - Interaction: entire card is a `<button>`; hover lifts 4–6px with the shared shadow upgrade. Focus-visible ring `2px solid var(--accent-gold)` with 3px offset.
 
-#### 4.5.2 Supporting cast grid (10 cards)
-Cards for: the 4 young leads, Arturo, Tiya Dely, Ligaya, Andrei, Mylene, Eleanor.
+#### 4.5.2 Supporting cast grid (11 cards)
+Cards for: the 4 young leads (Younger Joy, Emman, Hector, Anthony), Arturo, Tiya Dely, Ligaya, Andrei, **Ms. Ima**, **Mylene**, **Eleanor**. Grouped with small uppercase labels: "Young Cast" above the four young leads, "Supporting Cast" above everyone else.
 
-Layout: grid `repeat(5, 1fr)` desktop → `repeat(4, 1fr)` → `repeat(3, 1fr)` → `repeat(2, 1fr)`. Gap 16px. Grouped with small uppercase section labels ("Young Cast", "Supporting Cast") that span the grid row.
+Layout: grid `repeat(5, 1fr)` desktop → `repeat(4, 1fr)` → `repeat(3, 1fr)` → `repeat(2, 1fr)`. Gap 16px. Group labels span the full grid row with a hairline bottom border.
 
 Each card:
 - Portrait, `aspect-ratio: 3/4`.
