@@ -430,6 +430,37 @@
       align-self: flex-end;
     }
     @media (max-width: 480px) { .countdown-sep { display: none; } }
+
+    /* ── About ───────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .about-poster {
+      width: 100%;
+      border-radius: var(--radius-md);
+      display: block;
+      box-shadow: var(--shadow-card);
+    }
+    .advisory {
+      margin-top: 28px;
+      padding: 16px 20px;
+      background: var(--warn-bg);
+      border-left: 3px solid var(--warn-border);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .advisory p {
+      font-size: 12px;
+      line-height: 1.65;
+      color: rgba(220,160,100,0.85);
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-grid .poster-col { order: -1; }
+    }
   </style>
 </head>
 <body>
@@ -535,6 +566,45 @@
       </div>
     </div>
   </div>
+
+  <!-- ══ ABOUT ══════════════════════════════════════════════ -->
+  <section id="about" class="site-section">
+    <div class="container">
+      <p class="section-label reveal">About the Show</p>
+      <div class="gold-divider reveal reveal-delay-1"></div>
+      <div class="about-grid">
+        <div class="reveal reveal-delay-1">
+          <h2 class="section-heading">A Story of Love,<br>Resilience &amp; Discovery</h2>
+          <p class="body-text" style="margin-top: 22px;">
+            <em>Ang Huling El Bimbo</em> is a musical theatre play adapted and performed
+            by the Grade 12 HUMSS students of LPU Davao. Through engaging musical numbers
+            and dynamic performances, the production explores the experiences and emotions
+            of young individuals navigating life's challenges — themes of love, resilience,
+            and self-discovery that resonate across generations.
+          </p>
+          <p class="body-text" style="margin-top: 16px;">
+            Presented by the Lyceum of the Philippines University Davao Junior College,
+            this production marks a landmark achievement of student artistry and collaboration.
+          </p>
+          <div class="advisory" style="margin-top: 28px;">
+            <p>
+              <strong style="color: rgba(255,140,60,0.95);">Viewer Advisory:</strong>
+              Contains mature themes, strobe lights, and loud sounds.
+              Not suitable for very young or sensitive audiences.
+            </p>
+          </div>
+        </div>
+        <div class="poster-col reveal reveal-delay-2">
+          <img
+            src="SOURCES/Images/Officicial poster.jpg"
+            alt="Official Ang Huling El Bimbo poster"
+            class="about-poster"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script>
     // ── Countdown timer ──────────────────────────────────────
