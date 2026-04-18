@@ -461,6 +461,97 @@
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-grid .poster-col { order: -1; }
     }
+
+    /* ── Cast modal ─────────────────────────────────── */
+    #cast-modal {
+      border: none;
+      padding: 0;
+      background: #1a0d05;
+      border-radius: var(--radius-md);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.8), 0 0 0 1px rgba(245,200,107,0.2);
+      max-width: min(720px, 95vw);
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      color: var(--text-primary);
+    }
+    #cast-modal::backdrop {
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .modal-inner { position: relative; }
+    .modal-portrait {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .modal-body { padding: 28px 32px 36px; }
+    .modal-role {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 8px;
+    }
+    .modal-character-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      color: var(--accent);
+    }
+    .modal-actor-name {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 6px;
+      margin-bottom: 24px;
+    }
+    .modal-divider {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      margin-bottom: 24px;
+    }
+    .modal-bio-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 8px;
+    }
+    .modal-bio-text {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(13,5,0,0.7);
+      border: 1px solid rgba(245,200,107,0.2);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .modal-close:hover { background: rgba(245,200,107,0.12); border-color: rgba(245,200,107,0.5); }
+    .modal-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    @media (max-width: 540px) {
+      .modal-body { padding: 20px 20px 28px; }
+    }
   </style>
 </head>
 <body>
@@ -606,6 +697,24 @@
     </div>
   </section>
 
+  <!-- ══ CAST BIO MODAL ════════════════════════════════════ -->
+  <dialog id="cast-modal" aria-labelledby="modal-char-name">
+    <div class="modal-inner">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close">&#x2715;</button>
+      <img id="modal-portrait" class="modal-portrait" src="" alt="">
+      <div class="modal-body">
+        <p class="modal-role"    id="modal-role"></p>
+        <h2 class="modal-character-name" id="modal-char-name"></h2>
+        <p class="modal-actor-name"  id="modal-actor"></p>
+        <div class="modal-divider"></div>
+        <p class="modal-bio-label">Character</p>
+        <p class="modal-bio-text" id="modal-char-bio"></p>
+        <p class="modal-bio-label" style="margin-top:24px;">Performer</p>
+        <p class="modal-bio-text" id="modal-actor-bio"></p>
+      </div>
+    </div>
+  </dialog>
+
   <script>
     // ── Countdown timer ──────────────────────────────────────
     (function () {
@@ -626,6 +735,204 @@
       tick();
       setInterval(tick, 1000);
     })();
+
+    // ── CAST data ────────────────────────────────────────────
+    // CHARACTER BIO and ACTOR BIO fields: replace the placeholder strings
+    // with real text from the character profiles txt file when available.
+    const CAST = [
+      // ── Older leads (featured row) ──────────────────────────
+      {
+        id: 'older-hector',
+        role: 'Older Hector Samala',
+        actor: 'Dheb Pangandaman',
+        strand: 'STEM · Reliability',
+        group: 'lead',
+        image: 'SOURCES/Images/Character Profiles/extracted/v2_ OLDER VERS.png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'older-emman',
+        role: 'Older Emman Azarcon',
+        actor: 'Noel Vallejo',
+        strand: 'STEM · Innovation',
+        group: 'lead',
+        image: 'SOURCES/Images/Character Profiles/extracted/v2_ OLDER VERS (2).png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'older-anthony',
+        role: 'Older Anthony Cruz Jr.',
+        actor: 'Symon Castillo',
+        strand: 'STEM · Efficiency',
+        group: 'lead',
+        image: 'SOURCES/Images/Character Profiles/extracted/v2_ OLDER VERS (3).png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'older-joy',
+        role: 'Older Joy Manawari',
+        actor: 'Seven Obeso',
+        strand: 'HUMSS · Inclusivity',
+        group: 'lead',
+        image: 'SOURCES/Images/Character Profiles/extracted/v2_ OLDER VERS (4).png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      // ── Young cast ─────────────────────────────────────────
+      {
+        id: 'younger-joy',
+        role: 'Younger Joy Manawari',
+        actor: 'Jullana Bernal',
+        strand: 'HUMSS · Inclusivity',
+        group: 'young',
+        image: 'SOURCES/Images/Character Profiles/extracted/V1.png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'younger-emman',
+        role: 'Younger Emman Azarcon',
+        actor: 'Ace Librero',
+        strand: 'HUMSS · Inclusivity',
+        group: 'young',
+        image: 'SOURCES/Images/Character Profiles/extracted/V1 (2).png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'younger-hector',
+        role: 'Younger Hector Samala',
+        actor: 'Marvin Quilantang',
+        strand: 'STEM · Reliability',
+        group: 'young',
+        image: 'SOURCES/Images/Character Profiles/extracted/V1 (3).png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'younger-anthony',
+        role: 'Younger Anthony Cruz Jr.',
+        actor: 'Zane Gonzales',
+        strand: 'STEM · Efficiency',
+        group: 'young',
+        image: 'SOURCES/Images/Character Profiles/extracted/V1 (4).png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      // ── Supporting cast ────────────────────────────────────
+      {
+        id: 'arturo',
+        role: 'Arturo Banlaoi',
+        actor: 'Simone Estipona',
+        strand: 'STEM · Reliability',
+        group: 'supporting',
+        image: 'SOURCES/Images/Character Profiles/extracted/V1 (5).png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'tiya-dely',
+        role: 'Tiya Dely',
+        actor: 'Yzane Espedillon',
+        strand: 'STEM · Innovation',
+        group: 'supporting',
+        image: 'SOURCES/Images/Character Profiles/extracted/V1 (6).png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'ligaya',
+        role: 'Ligaya',
+        actor: 'Andreia Estrella',
+        strand: 'ABM · Valor',
+        group: 'supporting',
+        image: 'SOURCES/Images/Character Profiles/extracted/V1 (7).png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'andrei',
+        role: 'Andrei Antonio',
+        actor: 'Gio Bardos',
+        strand: 'STEM · Efficiency',
+        group: 'supporting',
+        image: 'SOURCES/Images/Character Profiles/extracted/V1 (8).png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'ms-ima',
+        role: 'Ms. Ima',
+        actor: 'Kaycee Victoria Camilotes',
+        strand: '',
+        group: 'supporting',
+        image: 'SOURCES/Images/Character Profiles/extracted/ima.png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'mylene',
+        role: 'Mylene Azarcon',
+        actor: 'Jzarylle Jaine Miras',
+        strand: '',
+        group: 'supporting',
+        image: 'SOURCES/Images/Character Profiles/extracted/mylene.png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+      {
+        id: 'eleanor',
+        role: 'Eleanor Cruz',
+        actor: 'Mekylla Gubac',
+        strand: '',
+        group: 'supporting',
+        image: 'SOURCES/Images/Character Profiles/extracted/eleanor.png',
+        characterBio: '<!-- REPLACE: character bio from txt file -->',
+        actorBio:     '<!-- REPLACE: actor bio from txt file -->',
+      },
+    ];
+
+    // ── Cast modal logic ─────────────────────────────────────
+    const castModal     = document.getElementById('cast-modal');
+    const modalClose    = document.getElementById('modal-close-btn');
+    let lastFocusedCard = null;
+
+    function openCastModal(id) {
+      const member = CAST.find(c => c.id === id);
+      if (!member) return;
+
+      document.getElementById('modal-portrait').src = member.image;
+      document.getElementById('modal-portrait').alt = `${member.role} — ${member.actor}`;
+      document.getElementById('modal-role').textContent       = member.role;
+      document.getElementById('modal-char-name').textContent  = member.role;
+      document.getElementById('modal-actor').textContent      =
+        member.strand ? `${member.actor} · ${member.strand}` : member.actor;
+      document.getElementById('modal-char-bio').textContent   = member.characterBio;
+      document.getElementById('modal-actor-bio').textContent  = member.actorBio;
+
+      lastFocusedCard = document.activeElement;
+      document.body.style.overflow = 'hidden';
+      castModal.showModal();
+      modalClose.focus();
+    }
+
+    function closeCastModal() {
+      castModal.close();
+      document.body.style.overflow = '';
+      if (lastFocusedCard) lastFocusedCard.focus();
+    }
+
+    modalClose.addEventListener('click', closeCastModal);
+    castModal.addEventListener('click', e => {
+      if (e.target === castModal) closeCastModal();
+    });
+    castModal.addEventListener('cancel', e => {
+      e.preventDefault();
+      closeCastModal();
+    });
   </script>
 </body>
 </html>
