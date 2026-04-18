@@ -695,6 +695,228 @@
       .leads-grid { grid-template-columns: 1fr; }
       .cast-grid  { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     }
+
+    /* ── Tickets ─────────────────────────────────────────── */
+    .tickets-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-top: 40px;
+    }
+    .tier-stack { display: flex; flex-direction: column; gap: 14px; }
+    .tier-card {
+      border: 1px solid rgba(245,200,107,0.18);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      background: rgba(245,200,107,0.03);
+      position: relative;
+      transition: border-color 0.2s ease;
+    }
+    .tier-card.gold {
+      border-color: rgba(245,200,107,0.5);
+      background: rgba(245,200,107,0.07);
+      box-shadow: 0 0 32px rgba(245,200,107,0.06), inset 0 1px 0 rgba(245,200,107,0.15);
+    }
+    .tier-card.silver {
+      border-color: var(--silver-soft);
+      background: rgba(192,200,220,0.05);
+    }
+    .tier-card.bronze {
+      border-color: rgba(200,150,90,0.2);
+      background: rgba(200,150,90,0.03);
+      opacity: 0.6;
+    }
+    .tier-badge {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 8px;
+    }
+    .tier-badge.silver-badge { color: rgba(192,210,240,0.6); }
+    .tier-badge.bronze-badge { color: rgba(200,150,90,0.7); }
+    .tier-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .tier-price.silver-price { color: var(--silver); }
+    .tier-price.bronze-price { color: rgba(200,150,90,0.8); font-size: 16px; margin-top: 4px; }
+    .tier-seats {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+    .showtime-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .showtime-pill {
+      flex: 1;
+      border: 1px solid rgba(245,200,107,0.2);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+    }
+    .showtime-time {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--accent);
+      display: block;
+    }
+    .showtime-arrive {
+      display: block;
+      font-size: 10px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .payment-note {
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-top: 18px;
+      padding: 14px 18px;
+      border: 1px solid rgba(245,200,107,0.1);
+      border-radius: var(--radius-sm);
+      background: rgba(245,200,107,0.02);
+    }
+    .floor-plan-box {
+      border: 1px solid rgba(245,200,107,0.15);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: rgba(0,0,0,0.25);
+    }
+    .floor-plan-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(245,200,107,0.1);
+    }
+    .floor-plan-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      color: var(--accent);
+    }
+    .floor-plan-legend {
+      display: flex;
+      gap: 16px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .legend-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .floor-plan-img-wrap img {
+      width: 100%;
+      display: block;
+    }
+    @media (max-width: 860px) {
+      .tickets-layout { grid-template-columns: 1fr; gap: 40px; }
+      .showtime-row { flex-direction: column; }
+    }
+
+    /* ── Venue ──────────────────────────────────────── */
+    .venue-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-top: 8px;
+    }
+    .venue-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      border: 1px solid rgba(245,200,107,0.2);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 18px;
+    }
+    .map-embed {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border: 1px solid rgba(245,200,107,0.1);
+      border-radius: var(--radius-md);
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .venue-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* ── Footer ─────────────────────────────────────── */
+    #site-footer {
+      padding: 80px 0 48px;
+      border-top: 1px solid rgba(245,200,107,0.1);
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(140,60,0,0.1) 0%, transparent 60%),
+        var(--bg-base);
+    }
+    .footer-logo {
+      height: 64px;
+      width: auto;
+      display: block;
+      margin: 0 auto 28px;
+      opacity: 0.9;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(245,200,107,0.35);
+      color: rgba(245,200,107,0.85);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s var(--ease-hover);
+    }
+    .social-btn:hover {
+      border-color: rgba(245,200,107,0.7);
+      background: rgba(245,200,107,0.06);
+      transform: translateY(-2px);
+    }
+    .social-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .footer-bottom {
+      margin-top: 48px;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: rgba(200,169,110,0.35);
+    }
   </style>
 </head>
 <body>
@@ -949,6 +1171,159 @@
     </div>
   </section>
 
+  <!-- ══ TICKETS ════════════════════════════════════════════ -->
+  <section id="tickets" class="site-section">
+    <div class="container">
+      <p class="section-label reveal">Get Your Seats</p>
+      <div class="gold-divider reveal reveal-delay-1"></div>
+      <h2 class="section-heading reveal reveal-delay-1">Tickets &amp; Pre-Order</h2>
+
+      <div class="tickets-layout">
+        <!-- Left: tiers + showtimes + policy + CTA -->
+        <div class="reveal reveal-delay-2">
+          <div class="tier-stack">
+            <div class="tier-card gold">
+              <div class="tier-badge">Gold Tier</div>
+              <div class="tier-price">₱250</div>
+              <div class="tier-seats">300 seats · closer to the stage</div>
+            </div>
+            <div class="tier-card silver">
+              <div class="tier-badge silver-badge">Silver Tier</div>
+              <div class="tier-price silver-price">₱200</div>
+              <div class="tier-seats">400 seats · elevated view</div>
+            </div>
+            <div class="tier-card bronze">
+              <div class="tier-badge bronze-badge">Bronze Tier</div>
+              <div class="tier-price bronze-price">Coming soon</div>
+            </div>
+          </div>
+
+          <div class="showtime-row" style="margin-top: 28px;">
+            <div class="showtime-pill">
+              <span class="showtime-time">5:30 PM</span>
+              <span class="showtime-arrive">Arrive by 4:00 PM<br>Entry closes 6:00 PM</span>
+            </div>
+            <div class="showtime-pill">
+              <span class="showtime-time">9:00 PM</span>
+              <span class="showtime-arrive">Arrive by 8:30 PM<br>Entry closes 9:30 PM</span>
+            </div>
+          </div>
+
+          <div class="payment-note">
+            <strong style="color: var(--text-primary);">GCash only</strong> &nbsp;·&nbsp;
+            Tickets are <strong style="color: var(--text-primary);">non-refundable</strong><br>
+            Free seating — first come, first served<br>
+            Confirmation sent via email, phone, or Facebook
+          </div>
+
+          <div style="margin-top: 32px;">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdaMbFQRliTzhKOOuyQMsnJkjWaXBnyfqlir1jmQwziyClBZg/viewform"
+              class="btn-primary"
+              target="_blank" rel="noopener"
+            >Pre-Order via Google Form &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Right: floor plan -->
+        <div class="floor-plan-box reveal reveal-delay-3">
+          <div class="floor-plan-header">
+            <span class="floor-plan-title">Seating Chart</span>
+            <div class="floor-plan-legend">
+              <div class="legend-item">
+                <span class="legend-dot" style="background: var(--accent);"></span>
+                Gold — ₱250
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot" style="background: var(--silver);"></span>
+                Silver — ₱200
+              </div>
+            </div>
+          </div>
+          <div class="floor-plan-img-wrap">
+            <img src="SOURCES/Images/Floor Plan.png"
+                 alt="Venue floor plan — Gold tier (300 seats) and Silver tier (400 seats)"
+                 loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ VENUE ══════════════════════════════════════════════ -->
+  <section id="venue" class="site-section">
+    <div class="container">
+      <p class="section-label reveal">Where to Find Us</p>
+      <div class="gold-divider reveal reveal-delay-1"></div>
+      <div class="venue-grid">
+        <div class="reveal reveal-delay-1">
+          <span class="venue-tag">Venue</span>
+          <h2 class="section-heading">Lyceum of the Philippines<br>University – Davao</h2>
+          <p class="body-text" style="margin-top: 20px;">
+            Located in Davao City, Philippines. Accessible via major roads
+            with parking available on campus.
+          </p>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 22px; line-height: 2;">
+            May 8, 2026<br>
+            Showtimes: <strong style="color: rgba(245,200,107,0.8);">5:30 PM</strong>
+            &amp; <strong style="color: rgba(245,200,107,0.8);">9:00 PM</strong>
+          </p>
+          <div style="margin-top: 28px;">
+            <a
+              href="https://www.google.com/maps/search/Lyceum+of+the+Philippines+University+Davao"
+              class="btn-ghost"
+              target="_blank" rel="noopener"
+            >Open in Google Maps &rarr;</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <iframe
+            class="map-embed"
+            src="https://maps.google.com/maps?q=Lyceum+of+the+Philippines+University+Davao&output=embed"
+            title="Lyceum of the Philippines University Davao location map"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+  <footer id="site-footer">
+    <div class="container">
+      <img
+        src="SOURCES/Images/Logos/logo-lpud.png"
+        alt="Lyceum of the Philippines University Davao"
+        class="footer-logo"
+      >
+      <p class="section-label">Stay Connected</p>
+      <h2 class="section-heading" style="font-size: clamp(22px,3vw,32px); margin-top: 12px;">
+        Follow Us for Updates
+      </h2>
+      <div class="social-links">
+        <a href="https://www.facebook.com/LPUHumssAssoc" class="social-btn" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.5h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          LPU HUMSS Assoc
+        </a>
+        <a href="https://www.facebook.com/LPUDavao" class="social-btn" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.5h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          LPU Davao
+        </a>
+      </div>
+      <div style="margin-top: 40px;">
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdaMbFQRliTzhKOOuyQMsnJkjWaXBnyfqlir1jmQwziyClBZg/viewform"
+          class="btn-primary"
+          target="_blank" rel="noopener"
+        >Pre-Order Tickets Now</a>
+      </div>
+      <p class="footer-bottom">
+        &copy; 2026 Ang Huling El Bimbo &nbsp;&middot;&nbsp; Grade 12 HUMSS &nbsp;&middot;&nbsp; LPU Davao Junior College
+      </p>
+    </div>
+  </footer>
+
   <!-- ══ CAST BIO MODAL ════════════════════════════════════ -->
   <dialog id="cast-modal" aria-labelledby="modal-char-name">
     <div class="modal-inner">
@@ -1185,6 +1560,54 @@
       e.preventDefault();
       closeCastModal();
     });
+
+    // ── Mobile nav toggle ─────────────────────────────────────
+    const hamburger   = document.getElementById('hamburger-btn');
+    const mobileMenu  = document.getElementById('mobile-menu');
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('click', e => {
+      if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // ── Scroll reveal ──────────────────────────────────────────
+    (function () {
+      const observer = new IntersectionObserver(
+        entries => entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        }),
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+
+    // ── Nav shadow on scroll ───────────────────────────────────
+    (function () {
+      const nav = document.getElementById('site-nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          nav.style.boxShadow  = '0 4px 32px rgba(0,0,0,0.5)';
+          nav.style.background = 'rgba(13,5,0,0.97)';
+        } else {
+          nav.style.boxShadow  = 'none';
+          nav.style.background = 'rgba(13,5,0,0.92)';
+        }
+      }, { passive: true });
+    })();
   </script>
 </body>
 </html>
