@@ -965,6 +965,7 @@
     >Pre-Order Tickets</a>
   </div>
 
+  <main id="main-content">
   <!-- ══ HERO ═══════════════════════════════════════════════ -->
   <section id="hero" class="grain">
     <div class="hero-bg" aria-hidden="true"></div>
@@ -1282,6 +1283,7 @@
             src="https://maps.google.com/maps?q=Lyceum+of+the+Philippines+University+Davao&output=embed"
             title="Lyceum of the Philippines University Davao location map"
             loading="lazy"
+            frameborder="0"
             allowfullscreen
           ></iframe>
         </div>
@@ -1289,6 +1291,7 @@
     </div>
   </section>
 
+  </main>
   <!-- ══ FOOTER ════════════════════════════════════════════ -->
   <footer id="site-footer">
     <div class="container">
@@ -1531,9 +1534,10 @@
       const member = CAST.find(c => c.id === id);
       if (!member) return;
 
+      const groupLabel = { lead: 'Lead Cast', young: 'Young Cast', supporting: 'Supporting Role' }[member.group] || 'Cast';
       document.getElementById('modal-portrait').src = member.image;
       document.getElementById('modal-portrait').alt = `${member.role} — ${member.actor}`;
-      document.getElementById('modal-role').textContent       = member.role;
+      document.getElementById('modal-role').textContent       = groupLabel;
       document.getElementById('modal-char-name').textContent  = member.role;
       document.getElementById('modal-actor').textContent      =
         member.strand ? `${member.actor} · ${member.strand}` : member.actor;
