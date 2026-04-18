@@ -552,6 +552,149 @@
     @media (max-width: 540px) {
       .modal-body { padding: 20px 20px 28px; }
     }
+
+    /* ── Cast section ───────────────────────────────── */
+    #cast {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(140,60,0,0.14) 0%, transparent 60%),
+        var(--bg-base);
+    }
+    .leads-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .lead-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(245,200,107,0.15);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      padding: 0;
+      transition:
+        transform 0.25s var(--ease-out-spring),
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+    .lead-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: rgba(245,200,107,0.4);
+    }
+    .lead-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .lead-card img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.4s var(--ease-out-spring);
+    }
+    .lead-card:hover img { transform: scale(1.03); }
+    .lead-body { padding: 14px 16px 18px; }
+    .lead-role {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 4px;
+    }
+    .lead-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+    .lead-actor {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+    .supporting-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--accent);
+      margin-top: 64px;
+      margin-bottom: 8px;
+    }
+    .cast-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .cast-group-label {
+      grid-column: 1 / -1;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(245,200,107,0.35);
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(245,200,107,0.07);
+      margin-top: 16px;
+    }
+    .cast-group-label:first-child { margin-top: 0; }
+    .cast-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(245,200,107,0.1);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      padding: 0;
+      transition:
+        transform 0.22s var(--ease-out-spring),
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+    }
+    .cast-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.45), 0 0 0 1px rgba(245,200,107,0.3);
+      border-color: rgba(245,200,107,0.3);
+    }
+    .cast-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .cast-card img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .cast-body { padding: 10px 12px 12px; }
+    .cast-character {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      color: var(--accent);
+      line-height: 1.25;
+    }
+    .cast-actor {
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    @media (max-width: 1080px) { .cast-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 900px)  { .leads-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 780px)  { .cast-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 540px) {
+      .leads-grid { grid-template-columns: 1fr; }
+      .cast-grid  { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
   </style>
 </head>
 <body>
@@ -693,6 +836,115 @@
             loading="lazy"
           >
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CAST ═══════════════════════════════════════════════ -->
+  <section id="cast" class="site-section">
+    <div class="container">
+      <p class="section-label reveal">The Cast</p>
+      <div class="gold-divider reveal reveal-delay-1"></div>
+      <h2 class="section-heading reveal reveal-delay-1">Meet the Performers</h2>
+      <p class="body-text reveal reveal-delay-2" style="margin-top: 14px;">
+        Grade 12 HUMSS brings the story to life through music, acting, and dance.
+        Click any portrait to read their full character and performer bio.
+      </p>
+
+      <!-- Featured: 4 older-era leads -->
+      <div class="leads-grid">
+        <button class="lead-card reveal reveal-delay-1" data-cast-id="older-hector" onclick="openCastModal('older-hector')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/v2_ OLDER VERS.png"
+               alt="Older Hector Samala — Dheb Pangandaman" loading="lazy" decoding="async">
+          <div class="lead-body">
+            <p class="lead-role">Older Hector Samala</p>
+            <p class="lead-name">Dheb<br>Pangandaman</p>
+            <p class="lead-actor">STEM · Reliability</p>
+          </div>
+        </button>
+        <button class="lead-card reveal reveal-delay-2" data-cast-id="older-emman" onclick="openCastModal('older-emman')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/v2_ OLDER VERS (2).png"
+               alt="Older Emman Azarcon — Noel Vallejo" loading="lazy" decoding="async">
+          <div class="lead-body">
+            <p class="lead-role">Older Emman Azarcon</p>
+            <p class="lead-name">Noel<br>Vallejo</p>
+            <p class="lead-actor">STEM · Innovation</p>
+          </div>
+        </button>
+        <button class="lead-card reveal reveal-delay-3" data-cast-id="older-anthony" onclick="openCastModal('older-anthony')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/v2_ OLDER VERS (3).png"
+               alt="Older Anthony Cruz Jr. — Symon Castillo" loading="lazy" decoding="async">
+          <div class="lead-body">
+            <p class="lead-role">Older Anthony Cruz Jr.</p>
+            <p class="lead-name">Symon<br>Castillo</p>
+            <p class="lead-actor">STEM · Efficiency</p>
+          </div>
+        </button>
+        <button class="lead-card reveal reveal-delay-4" data-cast-id="older-joy" onclick="openCastModal('older-joy')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/v2_ OLDER VERS (4).png"
+               alt="Older Joy Manawari — Seven Obeso" loading="lazy" decoding="async">
+          <div class="lead-body">
+            <p class="lead-role">Older Joy Manawari</p>
+            <p class="lead-name">Seven<br>Obeso</p>
+            <p class="lead-actor">HUMSS · Inclusivity</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- Supporting cast grid -->
+      <h3 class="supporting-heading reveal">Supporting Cast</h3>
+      <div class="gold-divider reveal reveal-delay-1"></div>
+
+      <div class="cast-grid">
+        <div class="cast-group-label">Young Cast</div>
+
+        <button class="cast-card reveal reveal-delay-1" data-cast-id="younger-joy" onclick="openCastModal('younger-joy')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/V1.png" alt="Younger Joy Manawari — Jullana Bernal" loading="lazy" decoding="async">
+          <div class="cast-body"><p class="cast-character">Younger Joy Manawari</p><p class="cast-actor">Jullana Bernal</p></div>
+        </button>
+        <button class="cast-card reveal reveal-delay-2" data-cast-id="younger-emman" onclick="openCastModal('younger-emman')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/V1 (2).png" alt="Younger Emman Azarcon — Ace Librero" loading="lazy" decoding="async">
+          <div class="cast-body"><p class="cast-character">Younger Emman Azarcon</p><p class="cast-actor">Ace Librero</p></div>
+        </button>
+        <button class="cast-card reveal reveal-delay-3" data-cast-id="younger-hector" onclick="openCastModal('younger-hector')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/V1 (3).png" alt="Younger Hector Samala — Marvin Quilantang" loading="lazy" decoding="async">
+          <div class="cast-body"><p class="cast-character">Younger Hector Samala</p><p class="cast-actor">Marvin Quilantang</p></div>
+        </button>
+        <button class="cast-card reveal reveal-delay-4" data-cast-id="younger-anthony" onclick="openCastModal('younger-anthony')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/V1 (4).png" alt="Younger Anthony Cruz Jr. — Zane Gonzales" loading="lazy" decoding="async">
+          <div class="cast-body"><p class="cast-character">Younger Anthony Cruz Jr.</p><p class="cast-actor">Zane Gonzales</p></div>
+        </button>
+
+        <div class="cast-group-label">Supporting</div>
+
+        <button class="cast-card reveal reveal-delay-1" data-cast-id="arturo" onclick="openCastModal('arturo')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/V1 (5).png" alt="Arturo Banlaoi — Simone Estipona" loading="lazy" decoding="async">
+          <div class="cast-body"><p class="cast-character">Arturo Banlaoi</p><p class="cast-actor">Simone Estipona</p></div>
+        </button>
+        <button class="cast-card reveal reveal-delay-2" data-cast-id="tiya-dely" onclick="openCastModal('tiya-dely')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/V1 (6).png" alt="Tiya Dely — Yzane Espedillon" loading="lazy" decoding="async">
+          <div class="cast-body"><p class="cast-character">Tiya Dely</p><p class="cast-actor">Yzane Espedillon</p></div>
+        </button>
+        <button class="cast-card reveal reveal-delay-3" data-cast-id="ligaya" onclick="openCastModal('ligaya')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/V1 (7).png" alt="Ligaya — Andreia Estrella" loading="lazy" decoding="async">
+          <div class="cast-body"><p class="cast-character">Ligaya</p><p class="cast-actor">Andreia Estrella</p></div>
+        </button>
+        <button class="cast-card reveal reveal-delay-4" data-cast-id="andrei" onclick="openCastModal('andrei')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/V1 (8).png" alt="Andrei Antonio — Gio Bardos" loading="lazy" decoding="async">
+          <div class="cast-body"><p class="cast-character">Andrei Antonio</p><p class="cast-actor">Gio Bardos</p></div>
+        </button>
+        <button class="cast-card reveal reveal-delay-1" data-cast-id="ms-ima" onclick="openCastModal('ms-ima')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/ima.png" alt="Ms. Ima — Kaycee Victoria Camilotes" loading="lazy" decoding="async">
+          <div class="cast-body"><p class="cast-character">Ms. Ima</p><p class="cast-actor">Kaycee Victoria Camilotes</p></div>
+        </button>
+        <button class="cast-card reveal reveal-delay-2" data-cast-id="mylene" onclick="openCastModal('mylene')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/mylene.png" alt="Mylene Azarcon — Jzarylle Jaine Miras" loading="lazy" decoding="async">
+          <div class="cast-body"><p class="cast-character">Mylene Azarcon</p><p class="cast-actor">Jzarylle Jaine Miras</p></div>
+        </button>
+        <button class="cast-card reveal reveal-delay-3" data-cast-id="eleanor" onclick="openCastModal('eleanor')" type="button">
+          <img src="SOURCES/Images/Character Profiles/extracted/eleanor.png" alt="Eleanor Cruz — Mekylla Gubac" loading="lazy" decoding="async">
+          <div class="cast-body"><p class="cast-character">Eleanor Cruz</p><p class="cast-actor">Mekylla Gubac</p></div>
+        </button>
       </div>
     </div>
   </section>
