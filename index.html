@@ -313,6 +313,66 @@
       #hamburger-btn { display: block; }
       .nav-inner { padding: 0 20px; }
     }
+
+    /* ── Hero ───────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 64px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 68% 30%, rgba(200,100,0,0.42) 0%, transparent 50%),
+        radial-gradient(ellipse at 15% 75%, rgba(130,50,0,0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(80,20,0,0.5) 0%, transparent 60%),
+        var(--bg-base);
+    }
+    .hero-poster {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 46%;
+      object-fit: cover;
+      object-position: center top;
+      mask-image: linear-gradient(to left, rgba(0,0,0,0.65) 35%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.65) 35%, transparent 100%);
+      opacity: 0.6;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 56%;
+    }
+    .hero-tagline {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      border: 1px solid rgba(245,200,107,0.2);
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 28px;
+      background: rgba(245,200,107,0.04);
+    }
+    .hero-subtitle {
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      color: var(--text-body);
+      margin-top: 20px;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    @media (max-width: 768px) {
+      .hero-poster { width: 100%; opacity: 0.12; }
+      .hero-content { max-width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -360,5 +420,35 @@
       target="_blank" rel="noopener"
     >Pre-Order Tickets</a>
   </div>
+
+  <!-- ══ HERO ═══════════════════════════════════════════════ -->
+  <section id="hero" class="grain">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <img
+      src="SOURCES/Images/Officicial poster.jpg"
+      alt=""
+      class="hero-poster"
+      aria-hidden="true"
+      loading="eager"
+    >
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tagline reveal">May 8 · 2026 · LPU Davao</span>
+        <h1 class="display-title reveal reveal-delay-1">Ang Huling<br>El Bimbo</h1>
+        <p class="hero-subtitle reveal reveal-delay-2">
+          A musical theatre production by the Grade 12 HUMSS students<br>
+          of LPU Davao Junior College.
+        </p>
+        <div class="hero-btns reveal reveal-delay-3">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdaMbFQRliTzhKOOuyQMsnJkjWaXBnyfqlir1jmQwziyClBZg/viewform"
+            class="btn-primary"
+            target="_blank" rel="noopener"
+          >Pre-Order Tickets</a>
+          <a href="#about" class="btn-ghost">About the Show</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
