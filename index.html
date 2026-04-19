@@ -738,6 +738,23 @@
       opacity: 0.65;
       filter: drop-shadow(0 0 12px rgba(255,215,0,0.15));
     }
+    .footer-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .footer-logos img {
+      height: 72px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.6;
+      filter: drop-shadow(0 0 10px rgba(255,215,0,0.12));
+      transition: opacity 0.2s ease;
+    }
+    .footer-logos img:hover { opacity: 0.85; }
     .footer-bottom {
       margin-top: 60px;
       font-family: system-ui, sans-serif;
@@ -1029,17 +1046,17 @@
           </div>
         </button>
         <button class="cast-card" onclick="openCastModal('ms-ima')" type="button">
-          <img src="SOURCES/Images/Character Profiles/extracted/ms.-ima.png" alt="Ms. Ima — Kaycee Camilotes" loading="lazy">
+          <img src="SOURCES/Images/Character Profiles/extracted/ms.-ima.png" alt="Ms. Ima — Kaycee Victoria Camilotes" loading="lazy">
           <div class="cast-body">
             <div class="cast-character">Ms. Ima</div>
-            <div class="cast-actor">Kaycee Camilotes</div>
+            <div class="cast-actor">Kaycee Victoria Camilotes</div>
           </div>
         </button>
         <button class="cast-card" onclick="openCastModal('mylene')" type="button">
-          <img src="SOURCES/Images/Character Profiles/extracted/mylene-azarcon!.png" alt="Mylene Azarcon — Jzarylle Miras" loading="lazy">
+          <img src="SOURCES/Images/Character Profiles/extracted/mylene-azarcon!.png" alt="Mylene Azarcon — Jzarylle Jaine Miras" loading="lazy">
           <div class="cast-body">
             <div class="cast-character">Mylene Azarcon</div>
-            <div class="cast-actor">Jzarylle Miras</div>
+            <div class="cast-actor">Jzarylle Jaine Miras</div>
           </div>
         </button>
         <button class="cast-card" onclick="openCastModal('eleanor')" type="button">
@@ -1169,7 +1186,11 @@
   <!-- ══ FOOTER / SOCIAL ════════════════════════════════════ -->
   <footer id="site-footer">
     <div class="container">
-      <img src="SOURCES/Images/Logos/JC Logo.png" alt="LPU Davao Junior College logo" class="footer-logo">
+      <div class="footer-logos">
+        <img src="SOURCES/Images/Logos/logo-humss-assoc.png" alt="HUMSS Association">
+        <img src="SOURCES/Images/Logos/logo-jc.png" alt="LPU Davao Junior College">
+        <img src="SOURCES/Images/Logos/logo-lpud.png" alt="Lyceum of the Philippines University Davao">
+      </div>
       <p class="section-label">Stay Connected</p>
       <h2 class="section-heading" style="font-size: clamp(22px, 3vw, 32px); margin-top: 12px;">Follow Us for Updates</h2>
       <div class="social-links">
@@ -1242,51 +1263,51 @@
 
     // ── CAST data ────────────────────────────────────────────
     const CAST = [
-      { id: 'younger-joy',    role: 'Younger Joy Manawari',    actor: 'Jullana Bernal',           group: 'Young Cast',      image: 'SOURCES/Images/Character Profiles/extracted/younger-joy.png',
-        characterBio: 'A cheerful and warm-hearted girl from the city who helps her Tiya Dely run a small carinderia near a college campus. She brightens the lives of everyone around her with her optimism and sincerity, and naturally draws the three young men into her world.',
-        actorBio: 'Jullana Bernal is a HUMSS Inclusivity student from LPU-Davao — a dedicated class officer and valued member of the Vocal Harmony choir club. A talented performer whose warmth and sincerity shine both on and off the stage.' },
-      { id: 'younger-emman',  role: 'Younger Emman Azarcon',   actor: 'Ace Librero',               group: 'Young Cast',      image: 'SOURCES/Images/Character Profiles/extracted/younger emman.png',
-        characterBio: 'A hopeful and idealistic probinsyano who is the first in his family to study in the city. He dreams of becoming a lawyer and fighting for his country, carrying with him a deep sense of duty to his roots and the people he loves.',
-        actorBio: 'Ace Librero is a HUMSS Inclusivity student, a regional table tennis champion and team captain. A fun, enthusiastic, and charming young man who brings the same energy and drive to the stage as he does to the court.' },
-      { id: 'younger-hector', role: 'Younger Hector Samala',   actor: 'Marvin Quilantang',         group: 'Young Cast',      image: 'SOURCES/Images/Character Profiles/extracted/younger-hector.png',
-        characterBio: 'A well-off and passionate film student with big dreams of becoming a director. Charming and charismatic, he is the natural leader of the group — full of artistic ambition and a zest for life.',
-        actorBio: 'Marvin Quilantang is a STEM-D Reliability student, a member of the LPU-D Vocal Harmony choir club, and a Muay Thai athlete. Jolly, strong, and full of energy, he brings a magnetic presence both in and out of the spotlight.' },
-      { id: 'younger-anthony',role: 'Younger Anthony Cruz Jr.', actor: 'Zane Gonzales',             group: 'Young Cast',      image: 'SOURCES/Images/Character Profiles/extracted/younger-anthony.png',
-        characterBio: 'A quiet and sensitive Business Management student living under the shadow of his strict, military father. Gentle by nature, he struggles to reconcile who he truly is with what the world expects him to be.',
-        actorBio: 'Zane Gonzales is a STEM-B Efficiency student, a STEM Councilor of the Junior College Local Council, and a member of Vocal Harmony. A dedicated and hardworking young man, he is a testament to what happens when discipline from academics meets passion for the arts.' },
-      { id: 'older-hector',   role: 'Older Hector Samala',     actor: 'Dheb Pangandaman',          group: 'Older Cast',      image: 'SOURCES/Images/Character Profiles/extracted/older-hector.png',
-        characterBio: 'A teleserye director who traded his artistic dreams for the demands of the industry. Successful on paper, he is a man quietly frustrated by the gap between the artist he wanted to be and the one he became.',
-        actorBio: 'Dheb Pangandaman is a STEM-D Reliability student, an officer of Vocal Harmony, and a familiar face in school singing competitions. Cheerful, funny, and brimming with talent, he lights up any room — and any stage — he walks into.' },
-      { id: 'older-emman',    role: 'Older Emman Azarcon',     actor: 'Noel Vallejo',              group: 'Older Cast',      image: 'SOURCES/Images/Character Profiles/extracted/older-emman.png',
-        characterBio: 'Now a government employee, the once fiery idealist has settled into a quieter version of himself. His provincial roots and activist spirit have faded with time, though his conscience has never fully gone quiet.',
-        actorBio: "Noel Vallejo is a STEM-A Innovation student, a drummer, and proud member of the school band. A strong, talented, and fun-loving gym bro who proves he's just as comfortable under the spotlight as he is behind the drum kit." },
-      { id: 'older-anthony',  role: 'Older Anthony Cruz Jr.',  actor: 'Symon Castillo',            group: 'Older Cast',      image: 'SOURCES/Images/Character Profiles/extracted/Older Anthony.png',
-        characterBio: 'A businessman who has built a respectable life on the outside, yet carries the weight of a self he has never fully allowed the world to see. His journey speaks to the cost of living for others rather than for oneself.',
-        actorBio: 'Symon Castillo is a STEM-B Efficiency student, Treasurer of the STEM Association, and a Vocal Harmony member known for lighting up intermission events with his voice. Funny, hardworking, and genuinely great, he brings both heart and humor to everything he does.' },
-      { id: 'older-joy',      role: 'Older Joy Manawari',      actor: 'Seven Obeso',               group: 'Older Cast',      image: 'SOURCES/Images/Character Profiles/extracted/older-joy.png',
-        characterBio: 'The grown-up version of the girl who once radiated joy and hope. Life has taken her down difficult and unexpected roads, yet traces of her warmth and resilience still linger beneath the surface.',
-        actorBio: "Seven Obeso is a HUMSS Inclusivity student, president of Vocal Harmony, and the musical's own Musical Director — pulling double duty as both leader and performer. With an extensive background in music and theater, she brings a rare depth and authority to the role of Older Joy Manawari." },
-      { id: 'arturo',         role: 'Arturo Banlaoi',          actor: 'Simone Estipona',           group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/arturo-banlaoi.png',
-        characterBio: 'A figure of authority and power whose influence looms darkly over the lives of those around him. He represents the corrupt forces in society that prey on the vulnerable.',
-        actorBio: "Simone Estipona is a STEM-D Reliability student with a wide range of club affiliations and a natural gift for making everyone around him laugh. Awkward yet dependable, he can do it all — and don't let his looks fool you, he's the youngest one in the cast." },
-      { id: 'tiya-dely',      role: 'Tiya Dely',               actor: 'Yzane Espedillon',          group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/tiya-dely.png',
-        characterBio: "Joy's warm and hardworking aunt who runs the small carinderia where everything begins. She is a pillar of the community — tough, loving, and endlessly devoted to her niece.",
-        actorBio: 'Yzane Espedillon is a STEM-A Innovation student, a Vocal Harmony member, and a competition-tested singer with a warm and bright personality. A young student who somehow convincingly plays a character triple her age — and pulls it off beautifully.' },
-      { id: 'ligaya',         role: 'Ligaya',                  actor: 'Andreia Estrella',          group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/ligaya.png',
-        characterBio: "A young girl whose very existence is a reminder of Joy's story and the bonds that outlast even the hardest of times.",
-        actorBio: 'Andreia Estrella is a Grade 11 ABM-Valor student and the only Grade 11 member of the cast. With an extensive background in music and a bright, charming personality, she fits in perfectly with her peers and holds her own on stage with ease.' },
-      { id: 'andrei',         role: 'Andrei Antonio',          actor: 'Gio Bardos',                group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/andrei-antonio.png',
-        characterBio: 'A supporting presence in the story whose connection to the central characters adds another layer to the web of relationships surrounding Joy.',
-        actorBio: "Gio Bardos is a STEM-B Efficiency student who can sing, dance, and choreograph — and serves as the musical's Head Choreographer. Cute, talented, and endlessly versatile, he is truly one of the creative engines behind this production." },
-      { id: 'ms-ima',         role: 'Ms. Ima',                 actor: 'Kaycee Camilotes', group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/ms.-ima.png',
-        characterBio: 'A beautiful and influential model and actress whose complicated relationship with Hector adds another dimension to his already restless and unfulfilled adult life.',
-        actorBio: 'Kaycee Camilotes is a STEM-D Reliability student, Chairwoman of the STEM Association, and a Vocal Harmony member known for representing the school in international competitions. Stunning, smart, and hardworking, she is one of the school\'s most recognized and accomplished figures.' },
-      { id: 'mylene',         role: 'Mylene Azarcon',          actor: 'Jzarylle Miras',      group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/mylene-azarcon!.png',
-        characterBio: "Emman's love interest whose dreams take her in a direction that leaves a mark on his heart — a bittersweet reminder of paths not taken.",
-        actorBio: 'Jzarylle Miras is a HUMSS Inclusivity student and classmate and partner-in-crime of Jullana (Joy) both in the classroom and beyond. A talented class officer with a flair for performance — keep an eye on her, she has plenty of appearances throughout the show.' },
-      { id: 'eleanor',        role: 'Eleanor Cruz',            actor: 'Mekylla Gubac',             group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/eleanor-cruz!.png',
-        characterBio: "Anthony's bright and cheerful wife whose warm personality masks the growing complications beneath the surface of their marriage.",
-        actorBio: "Mekylla Gubac is a STEM-A Innovation student, Vice President of the school's head student organization LYCESGO, and a member of Vocal Harmony. A talented and deeply dedicated young woman who leads with both grace and purpose." },
+      { id: 'younger-joy',    role: 'Younger Joy Manawari',    actor: 'Jullana Bernal',              group: 'Young Cast',      image: 'SOURCES/Images/Character Profiles/extracted/younger-joy.png',
+        characterBio: 'A cheerful and warm-hearted girl from the city, Joy helps her Tiya Dely run a small carinderia near a college campus. She is the kind of person whose presence makes a room feel lighter. Her optimism is genuine, her sincerity disarming, and her warmth draws the three young men into her world as naturally as the tide.',
+        actorBio: 'A HUMSS Inclusivity student at LPU-Davao, Jullana is a dedicated class officer and a valued member of the Vocal Harmony choir club. She is a talented performer whose warmth and sincerity shine just as brightly off the stage as on it. In Ang Huling El Bimbo, she pours her whole heart into the role of Younger Joy.' },
+      { id: 'younger-emman',  role: 'Younger Emman Azarcon',   actor: 'Ace Librero',                 group: 'Young Cast',      image: 'SOURCES/Images/Character Profiles/extracted/younger emman.png',
+        characterBio: 'A hopeful and idealistic probinsyano, Emman is the first in his family to study in the city. He carries his provincial roots with pride and a deep sense of duty to the people he loves. His dream is to become a lawyer and fight for his country, and that dream burns in him like a quiet, steady flame.',
+        actorBio: 'A HUMSS Inclusivity student and regional table tennis champion, Ace serves as team captain both on the court and in life. He is fun, enthusiastic, and genuinely charming, and he brings that same unstoppable energy and competitive drive to everything he does, including the stage.' },
+      { id: 'younger-hector', role: 'Younger Hector Samala',   actor: 'Marvin Quilantang',           group: 'Young Cast',      image: 'SOURCES/Images/Character Profiles/extracted/younger-hector.png',
+        characterBio: 'Well-off, passionate, and bursting with creative ambition, Hector is a film student with his sights set on becoming a director. He is the natural leader of the group, charismatic and full of life, with a bold artistic vision and a hunger for experience that pulls everyone around him into motion.',
+        actorBio: 'A STEM-D Reliability student, Marvin is a member of the LPU-D Vocal Harmony choir club and a dedicated Muay Thai athlete. Jolly, strong, and full of energy, he carries a magnetic presence wherever he goes and brings the same fire to the stage that he brings to every other arena in his life.' },
+      { id: 'younger-anthony',role: 'Younger Anthony Cruz Jr.', actor: 'Zane Gonzales',               group: 'Young Cast',      image: 'SOURCES/Images/Character Profiles/extracted/younger-anthony.png',
+        characterBio: 'Quiet and sensitive by nature, Anthony is a Business Management student living in the long shadow of his strict, military father. Gentle at his core, he spends his youth trying to reconcile who he truly is with what the world expects him to be, a struggle that weighs on him more than anyone around him can see.',
+        actorBio: 'A STEM-B Efficiency student, Zane serves as a STEM Councilor of the Junior College Local Council and is a proud member of Vocal Harmony. Dedicated and hardworking, he is living proof of what happens when academic discipline meets a genuine passion for the performing arts.' },
+      { id: 'older-hector',   role: 'Older Hector Samala',     actor: 'Dheb Pangandaman',            group: 'Older Cast',      image: 'SOURCES/Images/Character Profiles/extracted/older-hector.png',
+        characterBio: 'Hector got what he wanted, or something close enough to call success. He is a teleserye director now, respected in the industry, with a career built on meeting other people\'s expectations. But behind the professional polish is a man quietly frustrated by the distance between the artist he dreamed of becoming and the one he actually is.',
+        actorBio: 'A STEM-D Reliability student, Dheb is an officer of Vocal Harmony with a strong presence in school singing competitions. Cheerful, funny, and overflowing with talent, he has a gift for lighting up any room he walks into, including the stage.' },
+      { id: 'older-emman',    role: 'Older Emman Azarcon',     actor: 'Noel Vallejo',                group: 'Older Cast',      image: 'SOURCES/Images/Character Profiles/extracted/older-emman.png',
+        characterBio: 'The fiery idealist has grown into a quieter version of himself. Now a government employee, Emman has traded his activist spirit and provincial fire for something more settled, more careful. He has built a respectable life. But his conscience has never fully gone quiet, and that restlessness is never far from the surface.',
+        actorBio: 'A STEM-A Innovation student, Noel is a drummer and a member of the school publication PRIMUS. A strong, talented, and fun-loving individual, he is just as comfortable commanding attention under the spotlight as he is behind his drum kit.' },
+      { id: 'older-anthony',  role: 'Older Anthony Cruz Jr.',  actor: 'Symon Castillo',              group: 'Older Cast',      image: 'SOURCES/Images/Character Profiles/extracted/Older Anthony.png',
+        characterBio: 'From the outside, Anthony has built a good life. A successful businessman with everything a person is supposed to want. But beneath it all, he carries the quiet weight of a self he has never fully allowed the world to see. His story speaks to the cost of spending a lifetime living for others instead of for oneself.',
+        actorBio: 'A STEM-B Efficiency student and Treasurer of the STEM Association, Symon is a Vocal Harmony member beloved for lighting up school events with his voice. Funny, hardworking, and genuinely great, he brings both real heart and natural humor to everything he takes on.' },
+      { id: 'older-joy',      role: 'Older Joy Manawari',      actor: 'Seven Obeso',                 group: 'Older Cast',      image: 'SOURCES/Images/Character Profiles/extracted/older-joy.png',
+        characterBio: 'This is the woman that girl became. Life has taken Joy down roads that were neither easy nor expected, and the years have left their mark. Yet the warmth that once defined her has never fully disappeared. It lives on beneath the surface, quieter now, and all the more affecting for it.',
+        actorBio: "A HUMSS Inclusivity student, Seven is president of Vocal Harmony and serves as the musical's own Musical Director, pulling double duty as both leader and lead performer. With an extensive background in music and theater, she brings a rare depth and authority to the role of Older Joy, making every moment feel earned." },
+      { id: 'arturo',         role: 'Arturo Banlaoi',          actor: 'Simone Estipona',             group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/arturo-banlaoi.png',
+        characterBio: 'A figure of authority and quiet menace, Arturo\'s influence casts a long shadow over the lives of those around him. He represents the corrupt forces in society that prey on the vulnerable, the kind of power that never shows its full face until it is too late.',
+        actorBio: 'A STEM-D Reliability student with a wide range of club affiliations and a natural gift for making everyone around him laugh. He is awkward in the most endearing way and reliably dependable when it counts. Do not let his looks fool you — he is the youngest member of the cast.' },
+      { id: 'tiya-dely',      role: 'Tiya Dely',               actor: 'Yzane Espedillon',            group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/tiya-dely.png',
+        characterBio: "Joy's warm and hardworking aunt, Tiya Dely is the heart of the small carinderia where everything begins. She is a pillar of the community in the truest sense, tough and loving in equal measure, and endlessly devoted to her niece.",
+        actorBio: 'A STEM-A Innovation student and Vocal Harmony member, Yzane is a singer with a warm and bright personality. She is a young student who somehow convincingly inhabits a character triple her age, and she pulls it off beautifully.' },
+      { id: 'ligaya',         role: 'Ligaya',                  actor: 'Andreia Estrella',            group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/ligaya.png',
+        characterBio: "A young girl whose very existence carries meaning. Ligaya is a living reminder of Joy's story and of the bonds between people that endure long after time and circumstance have tried to erase them.",
+        actorBio: 'A Grade 11 ABM-Valor student and the only Grade 11 cast member in the production. With an extensive background in music and a bright, charming personality, she holds her own effortlessly among her older peers and makes her presence felt on stage.' },
+      { id: 'andrei',         role: 'Andrei Antonio',          actor: 'Gio Bardos',                  group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/andrei-antonio.png',
+        characterBio: 'A supporting presence in the story whose connection to the central characters adds another layer to the intricate web of relationships surrounding Joy. He is more significant than he first appears.',
+        actorBio: "A STEM-B Efficiency student who can sing, dance, and choreograph with equal skill. He also serves as one of the musical's Head Choreographers, making him one of the true creative engines behind this entire production. Cute, talented, and endlessly versatile." },
+      { id: 'ms-ima',         role: 'Ms. Ima',                 actor: 'Kaycee Victoria Camilotes',   group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/ms.-ima.png',
+        characterBio: 'Beautiful, influential, and complicated. A model and actress whose relationship with Hector adds another restless dimension to his already unfulfilled adult life. She is not simply a distraction; she reflects something back at him that he would rather not see.',
+        actorBio: 'A STEM-D Reliability student and Chairwoman of the STEM Association, Kaycee is a Vocal Harmony member known for representing the school in international competitions. Stunning, sharp, and deeply hardworking, she is one of the most accomplished figures in the school.' },
+      { id: 'mylene',         role: 'Mylene Azarcon',          actor: 'Jzarylle Jaine Miras',        group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/mylene-azarcon!.png',
+        characterBio: "Emman's love interest, whose own dreams take her down a path that diverges from his. She leaves a mark on his heart that time never quite fades, a bittersweet reminder of the roads not taken and the lives that could have been.",
+        actorBio: 'A HUMSS Inclusivity student and classmate and partner-in-crime of Jullana both in and out of the classroom. A talented class officer with a genuine flair for performance, she has plenty of appearances throughout the show. Keep an eye on her.' },
+      { id: 'eleanor',        role: 'Eleanor Cruz',            actor: 'Mekylla Gubac',               group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/eleanor-cruz!.png',
+        characterBio: "Anthony's bright and cheerful wife, Eleanor brings warmth and light wherever she goes. But beneath the happy surface of their marriage, things are more complicated than they appear, and Eleanor carries more than she lets on.",
+        actorBio: "A STEM-A Innovation student and Vice President of LYCESGO, the school's head student organization, Mekylla is also a Vocal Harmony member. A talented and deeply dedicated young woman, she leads with both grace and quiet purpose in everything she does." },
     ];
 
     // ── Cast modal logic ─────────────────────────────────────
