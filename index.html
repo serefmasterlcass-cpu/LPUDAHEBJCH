@@ -743,18 +743,23 @@
       align-items: center;
       justify-content: center;
       gap: 32px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       margin-bottom: 36px;
     }
     .footer-logos img {
       height: 110px;
       width: auto;
+      max-width: 30%;
       object-fit: contain;
       opacity: 0.7;
       filter: drop-shadow(0 0 10px rgba(255,215,0,0.12));
       transition: opacity 0.2s ease;
     }
     .footer-logos img:hover { opacity: 0.85; }
+    @media (max-width: 480px) {
+      .footer-logos { gap: 16px; }
+      .footer-logos img { height: 72px; }
+    }
     .footer-bottom {
       margin-top: 60px;
       font-family: system-ui, sans-serif;
@@ -1211,6 +1216,9 @@
         >Pre-Order Tickets Now</a>
       </div>
       <div class="footer-bottom">
+        For more details, contact <strong style="color: rgba(200,169,110,0.45);">Teatephi Macaraeg</strong> &nbsp;·&nbsp; +63 935 651 2528
+      </div>
+      <div class="footer-bottom" style="margin-top: 10px;">
         &copy; 2026 Ang Huling El Bimbo &nbsp;·&nbsp; Grade 12 HUMSS &nbsp;·&nbsp; LPU Davao Junior College
       </div>
     </div>
