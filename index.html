@@ -757,8 +757,8 @@
     }
     .footer-logos img:hover { opacity: 0.85; }
     @media (max-width: 480px) {
-      .footer-logos { gap: 16px; }
-      .footer-logos img { height: 72px; }
+      .footer-logos { gap: 10px; flex-wrap: nowrap; }
+      .footer-logos img { height: 58px; max-width: 30%; flex-shrink: 1; min-width: 0; }
     }
     .footer-bottom {
       margin-top: 60px;
@@ -1051,17 +1051,17 @@
           </div>
         </button>
         <button class="cast-card" onclick="openCastModal('ms-ima')" type="button">
-          <img src="SOURCES/Images/Character Profiles/extracted/ms.-ima.png" alt="Ms. Ima — Kaycee Victoria Camilotes" loading="lazy">
+          <img src="SOURCES/Images/Character Profiles/extracted/ms.-ima.png" alt="Ms. Ima — Kaycee Camilotes" loading="lazy">
           <div class="cast-body">
             <div class="cast-character">Ms. Ima</div>
-            <div class="cast-actor">Kaycee Victoria Camilotes</div>
+            <div class="cast-actor">Kaycee Camilotes</div>
           </div>
         </button>
         <button class="cast-card" onclick="openCastModal('mylene')" type="button">
-          <img src="SOURCES/Images/Character Profiles/extracted/mylene-azarcon!.png" alt="Mylene Azarcon — Jzarylle Jaine Miras" loading="lazy">
+          <img src="SOURCES/Images/Character Profiles/extracted/mylene-azarcon!.png" alt="Mylene Azarcon — Jzarylle Miras" loading="lazy">
           <div class="cast-body">
             <div class="cast-character">Mylene Azarcon</div>
-            <div class="cast-actor">Jzarylle Jaine Miras</div>
+            <div class="cast-actor">Jzarylle Miras</div>
           </div>
         </button>
         <button class="cast-card" onclick="openCastModal('eleanor')" type="button">
@@ -1207,6 +1207,10 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.5h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
           LPU HUMSS Assoc
         </a>
+        <a href="https://www.tiktok.com/@jclc2526?_r=1&_t=ZS-95f8rjlsgEb" class="social-btn" target="_blank" rel="noopener noreferrer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.52V6.75a4.85 4.85 0 0 1-1.02-.06z"/></svg>
+          TikTok
+        </a>
       </div>
       <div style="margin-top: 48px;">
         <a
@@ -1216,7 +1220,7 @@
         >Pre-Order Tickets Now</a>
       </div>
       <div class="footer-bottom">
-        For more details, contact <strong style="color: rgba(200,169,110,0.45);">Teatephi Macaraeg</strong> &nbsp;·&nbsp; +63 935 651 2528
+        For inquiries, contact <strong style="color: rgba(200,169,110,0.45);">Teatephi Macaraeg</strong> &nbsp;·&nbsp; +63 935 651 2528
       </div>
       <div class="footer-bottom" style="margin-top: 10px;">
         &copy; 2026 Ang Huling El Bimbo &nbsp;·&nbsp; Grade 12 HUMSS &nbsp;·&nbsp; LPU Davao Junior College
@@ -1307,10 +1311,10 @@
       { id: 'andrei',         role: 'Andrei Antonio',          actor: 'Gio Bardos',                  group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/andrei-antonio.png',
         characterBio: 'A supporting presence in the story whose connection to the central characters adds another layer to the intricate web of relationships surrounding Joy. He is more significant than he first appears.',
         actorBio: "A STEM-B Efficiency student who can sing, dance, and choreograph with equal skill. He also serves as one of the musical's Head Choreographers, making him one of the true creative engines behind this entire production. Cute, talented, and endlessly versatile." },
-      { id: 'ms-ima',         role: 'Ms. Ima',                 actor: 'Kaycee Victoria Camilotes',   group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/ms.-ima.png',
+      { id: 'ms-ima',         role: 'Ms. Ima',                 actor: 'Kaycee Camilotes',   group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/ms.-ima.png',
         characterBio: 'Beautiful, influential, and complicated. A model and actress whose relationship with Hector adds another restless dimension to his already unfulfilled adult life. She is not simply a distraction; she reflects something back at him that he would rather not see.',
         actorBio: 'A STEM-D Reliability student and Chairwoman of the STEM Association, Kaycee is a Vocal Harmony member known for representing the school in international competitions. Stunning, sharp, and deeply hardworking, she is one of the most accomplished figures in the school.' },
-      { id: 'mylene',         role: 'Mylene Azarcon',          actor: 'Jzarylle Jaine Miras',        group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/mylene-azarcon!.png',
+      { id: 'mylene',         role: 'Mylene Azarcon',          actor: 'Jzarylle Miras',        group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/mylene-azarcon!.png',
         characterBio: "Emman's love interest, whose own dreams take her down a path that diverges from his. She leaves a mark on his heart that time never quite fades, a bittersweet reminder of the roads not taken and the lives that could have been.",
         actorBio: 'A HUMSS Inclusivity student and classmate and partner-in-crime of Jullana both in and out of the classroom. A talented class officer with a genuine flair for performance, she has plenty of appearances throughout the show. Keep an eye on her.' },
       { id: 'eleanor',        role: 'Eleanor Cruz',            actor: 'Mekylla Gubac',               group: 'Supporting Cast', image: 'SOURCES/Images/Character Profiles/extracted/eleanor-cruz!.png',
